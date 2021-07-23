@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Form from '../../components/form/Form'
 import Table from '../../components/table/Table'
 import ProductContext from '../../contexts/ProductContext'
 
@@ -9,10 +10,11 @@ const Home = () => {
         price: 500,
     }])
 
-    const addProduct = () => {
+    const addProduct = (product: any ) => {
         // generamos un id a partir de la fecha para luego poder buscar
         // ademas de esta manera no se repetira
         const id = new Date().getTime()
+        setProduct([...products,{id, product}])
         console.log(id)
     }
 
@@ -33,6 +35,8 @@ const Home = () => {
             getProduct,
         }}>
             <div className="col-12 col-sm-6 offset-sm-3">
+                <h1 className="text-center">CRUD de Productos</h1>
+                <Form />
                 <Table />
             </div>
         </ProductContext.Provider>
