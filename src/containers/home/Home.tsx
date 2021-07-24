@@ -3,6 +3,12 @@ import Form from '../../components/form/Form'
 import Table from '../../components/table/Table'
 import ProductContext from '../../contexts/ProductContext'
 
+interface Prod{
+    id: number;
+    name: string;
+    price: number;
+}
+
 const Home = () => {
     const [products, setProduct] = useState<any>([{
         id: 1,
@@ -10,21 +16,23 @@ const Home = () => {
         price: 500,
     }])
 
-    const addProduct = (product: any ) => {
+    const addProduct = ({name,price}: any ) => {
         // generamos un id a partir de la fecha para luego poder buscar
         // ademas de esta manera no se repetira
         const id = new Date().getTime()
-        setProduct([...products,{id, product}])
+        setProduct([...products,{id, name,price}])
         console.log(id)
     }
 
-    const delProduct = (id: any) => {
-        console.log(`delete ${id}`);
-        
+    const delProduct = (id: number) => {
+        const productToDelete = products.filter((product: Prod) => product.id !== id)
+        setProduct(productToDelete)
+        console.log(`delete ${id}`);        
     }
 
-    const getProduct = () => {
-        
+    const getProduct = (id: number) => {
+        const findedProduct = products.find((product: Prod)=> product.id === id)
+        return findedProduct || {name:"detalle producto",price:0,id:0}
     }
 
     return (

@@ -1,0 +1,18 @@
+.verdeAgua {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,107,1) 35%, rgba(0,212,255,1) 100%);
+    color: white;
+}
+.italic {
+    font-style: italic;
+    font-weight: 700;
+}
+
+.rainbow {
+    background: rgb(209,59,4);
+background: linear-gradient(90deg, rgba(209,59,4,1) 0%, rgba(110,118,51,1) 16%, rgba(9,121,107,1) 35%, rgba(7,142,93,1) 50%, rgba(171,4,196,1) 74%, rgba(0,212,255,1) 100%);
+}
+.moveleft:hover{
+    transform: scale(2);
+    transition: 1s ease-out;
+}
